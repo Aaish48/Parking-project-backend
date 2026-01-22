@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parking Detection Login</title>
+  <style>
+    body {
+      background-color: #1e1e2f;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 100px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to Smart Parking Detection</h1>
+  <p id="locationStatus">Click below to give location access</p>
+  <button onclick="getLocation()">Allow Location</button>
+
+  <br><br>
+  <a href="dashboard.html"><button>Go to Dashboard</button></a>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          document.getElementById("locationStatus").innerText =
+            `Your Location: Latitude ${position.coords.latitude}, Longitude ${position.coords.longitude}`;
+        }, () => {
+          document.getElementById("locationStatus").innerText = "Location access denied.";
+        });
+      } else {
+        document.getElementById("locationStatus").innerText = "Geolocation is not supported.";
+      }
+    }
+  </script>
+
+</body>
+</html>

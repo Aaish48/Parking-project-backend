@@ -1,0 +1,19 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# ML models
+*.pt
+
+# Generated files
+processed/
+*.jpg
+*.png
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
